@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   TextField,
   Button,
@@ -24,6 +24,8 @@ const Login = () => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+
+  const navigate = useNavigate();
 
   const { enqueueSnackbar } = useSnackbar();
 
@@ -72,9 +74,10 @@ const Login = () => {
       ? JSON.parse(localStorage.getItem("user"))
       : null;
     if (user) {
-      window.location = "/";
+      console.log(user);
+      navigate("/");
     }
-  }, []);
+  }, [navigate]);
 
   return (
     <>

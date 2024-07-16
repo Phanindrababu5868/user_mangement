@@ -16,7 +16,7 @@ import {
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useSnackbar } from "notistack";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AlertDialog from "./Dialog";
 
 const SignUp = () => {
@@ -33,6 +33,8 @@ const SignUp = () => {
   const { enqueueSnackbar } = useSnackbar();
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -81,7 +83,7 @@ const SignUp = () => {
           setLoading(false);
           setError(false);
           setTimeout(() => {
-            window.location = "/login";
+            navigate("/login");
           }, 3000);
         } else {
           setError(true);
