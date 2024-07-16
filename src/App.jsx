@@ -39,6 +39,11 @@ const App = () => {
         </Layout>
       ),
     },
+    // Fallback route for unmatched paths
+    {
+      path: "*",
+      element: <Navigate to={user ? "/" : "/login"} />,
+    },
   ]);
 
   return <RouterProvider router={router} />;
