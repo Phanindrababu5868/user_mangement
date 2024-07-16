@@ -62,7 +62,7 @@ const Dashboard = () => {
 
   const logout = () => {
     localStorage.removeItem("user");
-    window.location = "/login";
+    window.location = "login";
   };
 
   return (

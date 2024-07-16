@@ -24,7 +24,7 @@ const App = () => {
       ),
     },
     {
-      path: "/signup",
+      path: "signup",
       element: (
         <Layout>
           <SignUp />
@@ -32,7 +32,7 @@ const App = () => {
       ),
     },
     {
-      path: "/login",
+      path: "login",
       element: (
         <Layout>
           <Login />
