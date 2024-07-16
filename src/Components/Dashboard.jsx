@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { styled } from "@mui/system";
+import { useNavigate } from "react-router-dom";
 
 const DashboardContainer = styled(Container)({
   display: "flex",
@@ -59,10 +60,10 @@ const LogoutButton = styled(Button)({
 
 const Dashboard = () => {
   const user = JSON.parse(localStorage.getItem("user"));
-
+  const navigate = useNavigate();
   const logout = () => {
     localStorage.removeItem("user");
-    window.location = "login";
+    navigate("/login");
   };
 
   return (
